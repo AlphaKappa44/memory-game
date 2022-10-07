@@ -35,10 +35,11 @@ function App() {
 
   }
 
+  console.log(cards, turns)
   return (
     <div className="App">
       <h1>MEMORY GAME</h1>
-      <button>&gt; {'>'} New Game</button>
+      <button onClick={shuffleCards}> &gt; {'>'} New Game </button>
     </div>
   );
 }
