@@ -2,12 +2,12 @@ import { useState } from 'react';
 import './App.css';
 
 const cardImages = [
-  {"src" : "public/img/bisouVolant.webp"},
-  {"src" : "public/img/etBim.webp"},
-  {"src" : "public/img/genie.webp"},
-  {"src" : "public/img/onFire.webp"},
-  {"src" : "public/img/runPizza.webp"},
-  {"src" : "public/img/star.webp"}
+  {"src" : "/img/bisouVolant.webp"},
+  {"src" : "/img/etBim.webp"},
+  {"src" : "/img/genie.webp"},
+  {"src" : "/img/onFire.webp"},
+  {"src" : "/img/runPizza.webp"},
+  {"src" : "/img/star.webp"}
 ]
 
 function App() {
@@ -39,7 +39,18 @@ function App() {
   return (
     <div className="App">
       <h1>MEMORY GAME</h1>
-      <button onClick={shuffleCards}> &gt; {'>'} New Game </button>
+      <p>♠️♦️♣️♥️</p>
+      <button onClick={shuffleCards}> ▶️ CLICK &gt; {'>'} New Game 🟢</button>
+      <div className='card-grid'> 
+        {cards.map(card => (
+          <div className='card' key={card.id}>
+            <div>
+              <img className='front' src={card.src} alt="card front" />
+              <img className='back' src="/img/supporter.webp" alt="card back" />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

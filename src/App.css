@@ -19,6 +19,18 @@ button:hover {
   color: #fff;
 }
 
+.card-grid {
+  margin-top: 40px;
+  display: grid;
+  justify-content: space-around;  
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.card {
+  border:#fff 3px solid;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
