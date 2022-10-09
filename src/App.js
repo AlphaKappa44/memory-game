@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import SingleCard from './components/SingleCard';
 
 const cardImages = [
   {"src" : "/img/bisouVolant.webp"},
@@ -12,7 +13,7 @@ const cardImages = [
 
 function App() {
 
-  // Create a state with an emty array by default
+  // Create a state with an empty array by default
   const [cards, setCards] = useState([])
   // Create a state for the number of turns
   const [turns, setTurns] = useState(0)
@@ -41,14 +42,10 @@ function App() {
       <h1>MEMORY GAME</h1>
       <p>♠️♦️♣️♥️</p>
       <button onClick={shuffleCards}> ▶️ CLICK &gt; {'>'} New Game 🟢</button>
+      
       <div className='card-grid'> 
         {cards.map(card => (
-          <div className='card' key={card.id}>
-            <div>
-              <img className='front' src={card.src} alt="card front" />
-              <img className='back' src="/img/supporter.webp" alt="card back" />
-            </div>
-          </div>
+          <SingleCard key={card.id} card={card}/>
         ))}
       </div>
     </div>
