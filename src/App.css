@@ -27,10 +27,6 @@ button:hover {
   grid-gap: 20px;
 }
 
-.card {
-  border:#fff 3px solid;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
