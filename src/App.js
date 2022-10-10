@@ -17,6 +17,9 @@ function App() {
   const [cards, setCards] = useState([])
   // Create a state for the number of turns
   const [turns, setTurns] = useState(0)
+  // Create 2 states for 2 choices that the user is going to make
+  const [choiceOne, setChoiceOne] = useState(null);
+  const [choiceTwo, setChoiceTwo] = useState(null);
 
   // 1-Duplicate each card once = 12 cards
   // 2-Randomize the order of the cards 
@@ -36,7 +39,12 @@ function App() {
 
   }
 
-  console.log(cards, turns)
+// console.log(cards, turns)
+
+// Handle a choice
+const handleChoice = (card) => {
+  console.log(card)
+}
   return (
     <div className="App">
       <h1>MEMORY GAME</h1>
@@ -45,7 +53,12 @@ function App() {
       
       <div className='card-grid'> 
         {cards.map(card => (
-          <SingleCard key={card.id} card={card}/>
+          <SingleCard 
+		  // handleChoice prop is equal to the handleChoice function
+		  	handleChoice = {handleChoice}
+          	key={card.id} 
+          	card={card}
+          />
         ))}
       </div>
     </div>
