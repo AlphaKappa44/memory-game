@@ -43,7 +43,10 @@ function App() {
 
 // Handle a choice
 const handleChoice = (card) => {
-  console.log(card)
+  // console.log(card)
+  // We check the state of choice 1, if true we set choice 2, if false, we set choice 1
+  choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+  // console.log("choice one : " + choiceOne + " ;choice two : " +choiceTwo)
 }
   return (
     <div className="App">
