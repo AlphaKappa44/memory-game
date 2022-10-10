@@ -116,6 +116,7 @@ function App() {
 			/>
 			))}
 		</div>
+		<p>Number of tries : {turns}</p>
 		</div>
 	);
 }
