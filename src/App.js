@@ -33,6 +33,8 @@ function App() {
 		.sort(() => Math.random() - 0.5)
 		.map((card) => ({ ...card, id: Math.random() }));
 
+		setChoiceOne(null)
+		setChoiceTwo(null)
 		// set a new state with the randomized cards array
 		setCards(shuffleCards);
 		// Reset turns to 0 for a new Game
