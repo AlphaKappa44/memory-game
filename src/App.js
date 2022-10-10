@@ -19,6 +19,8 @@ function App() {
 	// Create 2 states for 2 choices that the user is going to make
 	const [choiceOne, setChoiceOne] = useState(null);
 	const [choiceTwo, setChoiceTwo] = useState(null);
+	// State for cards to be disabled when waiting for card chosen to be flipped
+	const [disabled, setDisabled] = useState(false);
 
 	// 1-Duplicate each card once = 12 cards
 	// 2-Randomize the order of the cards
@@ -49,13 +51,17 @@ function App() {
 		// useEffect is the solution
 	};
 
-	// Compare2 selected cards
+	// Compare 2 selected cards
 	useEffect(() => {
 		// if we have 2 states to compare with
 		if (choiceOne && choiceTwo) {
+			// Until the check is done after click, cards are disabled
+			setDisabled(true);
+
 			// if both image sources are the same
 			if (choiceOne.src === choiceTwo.src) {
 				 console.log('Those 2 cards are THE SAME')
+				// We can setCards identical to match = true
 				setCards(prevcards => {
 					return prevcards.map((card) => {
 						if (card.src === choiceOne.src) {
@@ -87,6 +93,8 @@ function App() {
 		setChoiceOne(null)
 		setChoiceTwo(null)
 		setTurns(prevTurns => prevTurns+1)
+		// Cards can be active again
+		setDisabled(false)
 	}
 
 	return (
@@ -104,6 +112,7 @@ function App() {
 				card={card}
 				// 3 cases when a card should be flipped
 				flipped= {card === choiceOne || card === choiceTwo || card.matched}
+				disabled={disabled}
 			/>
 			))}
 		</div>

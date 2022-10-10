@@ -1,12 +1,15 @@
 import './SingleCard.css'
 
-function SingleCard({ card, handleChoice, flipped }) {
+function SingleCard({ card, handleChoice, flipped, disabled }) {
 
     const handleClick = () => {
+        // Only if cards are disabled the choice will be handled
+        if (!disabled) {
         // console.log(event.target)
         // console.log(handleChoice)
         handleChoice(card)
         // console.log(handleChoice(card))
+        }
     };
     
     return (
