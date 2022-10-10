@@ -72,7 +72,8 @@ function App() {
 			// Else if images are differents
 			} else {
 				 console.log('Those 2 cards are DIFFERENTS')
-				resetTurn()
+				 setTimeout(() => resetTurn(), 1500)
+				
 				 console.log("Turn was just reset")
 			}
 		}

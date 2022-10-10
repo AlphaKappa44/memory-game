@@ -9,3 +9,26 @@
     border-radius: 10px;
     background-color: blueviolet;
 }
+
+/* Front of the card -> pictures */
+.card .front {
+    transform: rotateY(90deg);
+    transition: all ease-in 0.5s;
+    position : absolute;
+}
+
+.flipped .front {
+    transform: rotateY(0deg);
+    transition-delay: 0.3s;
+}
+
+/*  Back of the cards */
+.card .back {
+    transition: all 0.3s ease-in;
+    transition-delay: 0.3s;
+}
+
+.flipped .back {
+    transform: rotateY(90deg);
+    transition-delay: 0s;
+}
