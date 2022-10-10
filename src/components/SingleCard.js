@@ -8,6 +8,7 @@ function SingleCard({ card, handleChoice }) {
         handleChoice(card)
         // console.log(handleChoice(card))
     };
+    
     return (
         <div className='card' >
         <div>
