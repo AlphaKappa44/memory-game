@@ -1,6 +1,6 @@
 import './SingleCard.css'
 
-function SingleCard({ card, handleChoice }) {
+function SingleCard({ card, handleChoice, flipped }) {
 
     const handleClick = () => {
         // console.log(event.target)
@@ -11,7 +11,8 @@ function SingleCard({ card, handleChoice }) {
     
     return (
         <div className='card' >
-        <div>
+            {/* if flipped is true we apply the class; nothing if false */}
+        <div className= {flipped? "flipped" : ""}>
           <img className='front' src={card.src} alt="card front" />
           <img 
             onClick={handleClick} 

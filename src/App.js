@@ -3,12 +3,12 @@ import "./App.css";
 import SingleCard from "./components/SingleCard";
 
 const cardImages = [
-	{ src: "/img/bisouVolant.webp" },
-	{ src: "/img/etBim.webp" },
-	{ src: "/img/genie.webp" },
-	{ src: "/img/onFire.webp" },
-	{ src: "/img/runPizza.webp" },
-	{ src: "/img/star.webp" },
+	{ src: "/img/bisouVolant.webp", matched : false },
+	{ src: "/img/etBim.webp", matched : false },
+	{ src: "/img/genie.webp", matched : false },
+	{ src: "/img/onFire.webp", matched : false },
+	{ src: "/img/runPizza.webp", matched : false },
+	{ src: "/img/star.webp", matched : false },
 ];
 
 function App() {
@@ -55,17 +55,31 @@ function App() {
 		if (choiceOne && choiceTwo) {
 			// if both image sources are the same
 			if (choiceOne.src === choiceTwo.src) {
-				console.log('Those 2 cards are THE SAME')
+				 console.log('Those 2 cards are THE SAME')
+				setCards(prevcards => {
+					return prevcards.map((card) => {
+						if (card.src === choiceOne.src) {
+							return {...card, matched: true}
+							
+					} else { 
+						return card
+					}
+					})
+				})
+
 				resetTurn()
-				console.log("Turn was just reset")
+				 console.log("Turn was just reset")
 			// Else if images are differents
 			} else {
-				console.log('Those 2 cards are DIFFERENTS')
+				 console.log('Those 2 cards are DIFFERENTS')
 				resetTurn()
-				console.log("Turn was just reset")
+				 console.log("Turn was just reset")
 			}
 		}
 	}, [choiceOne, choiceTwo])
+
+	// Check the new cards with matched properties on "true"
+	console.log(cards)
 
 	// Reset choices and increase turn
 	const resetTurn = () => {
@@ -87,6 +101,8 @@ function App() {
 				handleChoice={handleChoice}
 				key={card.id}
 				card={card}
+				// 3 cases when a card should be flipped
+				flipped= {card === choiceOne || card === choiceTwo || card.matched}
 			/>
 			))}
 		</div>
